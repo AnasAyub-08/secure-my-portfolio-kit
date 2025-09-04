@@ -10,6 +10,6 @@ A Python tool that scans a website (like your portfolio) for missing security he
 
 ## 🛠 Installation
 ```bash
-git clone https://github.com/YOUR-USERNAME/secure-my-portfolio-kit.git
+git clone https://github.com/AnasAyub-08/secure-my-portfolio-kit
 cd secure-my-portfolio-kit
 pip install -r requirements.txt
