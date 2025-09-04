@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Security Scan Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1 { color: #2c3e50; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background: #f4f4f4; }
+    .present { color: green; }
+    .missing { color: red; }
+    .grade { font-size: 1.5em; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Security Scan Report</h1>
+  <p><strong>Site:</strong> {{ data.url }}</p>
+  <p><strong>Date:</strong> {{ data.timestamp }}</p>
+  <p class="grade">Overall Grade: {{ data.grade }}</p>
+
+  <table>
+    <tr>
+      <th>Header</th>
+      <th>Status</th>
+      <th>Description</th>
+    </tr>
+    {% for header, (status, desc) in data.results.items() %}
+    <tr>
+      <td>{{ header }}</td>
+      <td class="{{ 'present' if 'Present' in status else 'missing' }}">{{ status }}</td>
+      <td>{{ desc }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
